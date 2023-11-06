@@ -35,31 +35,11 @@ users[0].isSameAge(users[2]);
 //
 //
 
-let formArray = [];
-const form = document.querySelector("form");
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let petName = document.getElementById("pet-name").value;
-  let ownerName = document.getElementById("owner-name").value;
-  let species = document.getElementById("species").value;
-  let breed = document.getElementById("breed").value;
-
-  let formElement = [petName, ownerName, species, breed];
-  formArray.push(formElement);
-
-  document.getElementById("pet-name").value = "";
-  document.getElementById("owner-name").value = "";
-  document.getElementById("species").value = "";
-  document.getElementById("breed").value = "";
-
-  console.log(formArray);
-});
-
 class Pet {
-  constructor(patName, ownerName, species, breed) {
+  constructor(patName, ownerName, specieas, breed) {
     this.patName = patName;
     this.ownerName = ownerName;
-    this.specieas = species;
+    this.specieas = specieas;
     this.breed = breed;
   }
   static sameOwner(petA, petB) {
@@ -72,7 +52,28 @@ class Pet {
 }
 
 const pets = [];
+const form = document.querySelector("form");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let petName = document.getElementById("pet-name").value;
+  let ownerName = document.getElementById("owner-name").value;
+  let specieas = document.getElementById("species").value;
+  let breed = document.getElementById("breed").value;
 
-const petObject = function () {
-  formArray.forEach(pet => pets.push(new Pet(pet[0], pet[1], pet[2], pet[3])));
-};
+  let formElement = [petName, ownerName, specieas, breed];
+
+  pets.push(
+    new Pet(formElement[0], formElement[1], formElement[2], formElement[3])
+  );
+
+  document.getElementById("pet-name").value = "";
+  document.getElementById("owner-name").value = "";
+  document.getElementById("species").value = "";
+  document.getElementById("breed").value = "";
+
+  console.log(pets);
+});
+
+// const petObject = function () {
+//   formArray.forEach(pet => pets.push(new Pet(pet[0], pet[1], pet[2], pet[3])));
+// };
