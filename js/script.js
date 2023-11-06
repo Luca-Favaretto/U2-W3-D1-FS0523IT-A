@@ -60,11 +60,7 @@ form.addEventListener("submit", function (event) {
   let specieas = document.getElementById("species").value;
   let breed = document.getElementById("breed").value;
 
-  let formElement = [petName, ownerName, specieas, breed];
-
-  pets.push(
-    new Pet(formElement[0], formElement[1], formElement[2], formElement[3])
-  );
+  pets.push(new Pet(petName, ownerName, specieas, breed));
 
   document.getElementById("pet-name").value = "";
   document.getElementById("owner-name").value = "";
@@ -73,7 +69,3 @@ form.addEventListener("submit", function (event) {
 
   console.log(pets);
 });
-
-// const petObject = function () {
-//   formArray.forEach(pet => pets.push(new Pet(pet[0], pet[1], pet[2], pet[3])));
-// };
