@@ -49,6 +49,7 @@ class Pet {
       console.log("I due animali hanno proprietari differneti.");
     }
   }
+  nbf;
 }
 
 const pets = [];
